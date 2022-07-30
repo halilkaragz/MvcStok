@@ -10,17 +10,23 @@
         <th>Müşteri Id</th>
         <th>Ad</th>
         <th>Soyad</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+
     </tr>
     <tbody>
-        @foreach (var item in Model)
+        @foreach (var mus in Model)
         {
         <tr>
-            <th>@item.Id</th>
-            <td>@item.Ad</td>
-            <td>@item.Soyad</td>
+            <th>@mus.Id</th>
+            <td>@mus.Ad</td>
+            <td>@mus.Soyad</td>
+            <td><a href="~/MUSTERI/SIL/@mus.Id" class="btn btn-danger">Sil</a> </td>
+            <td><a href="~/MUSTERI/GUNCELLE/@mus.Id" class="btn btn-danger">Güncelle</a> </td>
         </tr>
         }
     </tbody>
 </table>
+<a href="/MUSTERI/YENIMUSTERI/" class="btn btn-primary">Yeni Muşteri Ekle</a>
 
 
