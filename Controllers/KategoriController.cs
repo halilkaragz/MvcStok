@@ -16,6 +16,18 @@ namespace MvcStok.Controllers
             var degerler = db.Kategoriler.ToList();
             return View(degerler);
         }
+        [HttpGet]
+        public ActionResult YeniKategori()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult YeniKategori(Kategoriler p1)
+        {
+            db.Kategoriler.Add(p1);
+            db.SaveChanges();
+            return View();
+        }
 
     }
 }
