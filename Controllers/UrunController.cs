@@ -16,5 +16,28 @@ namespace MvcStok.Controllers
             var degerler = db.Urunler.ToList();
             return View(degerler);
         }
+
+        [HttpGet]
+        public ActionResult YeniUrunEkle()
+        {
+            List<SelectListItem> degerler = (from i in db.Kategoriler.ToList()
+                                             select new SelectListItem
+                                             {
+                                                 Text = i.Ad,
+                                                 Value = i.Id.ToString()
+                                             }).ToList();
+            ViewBag.dgr = degerler;
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult YeniUrunEkle(Urunler p1)
+        {
+            db.Urunler.Add(p1);
+            db.SaveChanges();
+            return View();
+        }
+
+
     }
 }
