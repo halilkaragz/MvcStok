@@ -38,5 +38,19 @@ namespace MvcStok.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult MusteriGetir(int Id)
+        {
+            var mus = db.Musteriler.Find(Id);
+            return View("MusteriGetir", mus);
+        }
+        public ActionResult Guncelle(Musteriler p1)
+        {
+            var musteri = db.Musteriler.Find(p1.Id);
+            musteri.Ad = p1.Ad;
+            musteri.Soyad = p1.Soyad;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
