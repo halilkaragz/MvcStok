@@ -44,6 +44,14 @@ namespace MvcStok.Controllers
             
         }
 
+        public ActionResult SIL(int Id)
+        {
+            var urun = db.Urunler.Find(Id);
+            db.Urunler.Remove(urun);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
 
     }
 }
