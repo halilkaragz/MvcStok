@@ -37,5 +37,11 @@ namespace MvcStok.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult KATEGORIGETIR(int Id)
+        {
+            var kategori = db.Kategoriler.Find(Id);
+            return View("KATEGORIGETIR", kategori);
+        }
+
     }
 }
